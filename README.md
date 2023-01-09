@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Status](https://img.shields.io/badge/status-ACTIVE-brightgreen?style=for-the-badge&logo=github)]()
+![Status](https://img.shields.io/badge/status-active-brightgreen?style=for-the-badge&logo=github&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=rotaryinternational&logoColor=white)
 
 </div>
 
