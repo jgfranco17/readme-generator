@@ -1,7 +1,7 @@
 import os
 import yaml
 from tkinter import Tk, Entry, Button
-
+from dataclasses import dataclass
 
 class MarkdownGenerator(object):
     def __init__(self, config:str="config.yaml"):
@@ -44,4 +44,16 @@ class MarkdownGenerator(object):
     
     def run(self) -> None: 
         print("Running generator!")
+        
+        
+class Header(object):
+    def __init__(self, level:int, text:str):
+        if level not in (1, 2, 3):
+            raise ValueError(f'UInvalid header level: {level}')
+        self.__level = level
+        self.__text = text
+
+    @property
+    def content(self):
+        return f'{"#" * self.__level} {self.__text}'
     
