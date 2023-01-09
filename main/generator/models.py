@@ -14,6 +14,7 @@ class MarkdownGenerator(object):
     def filename(self) -> str:
         return self.__filename
     
+    @staticmethod
     def __read_config_file(filename:str) -> dict:
         """
         Read a YAML configuration file and convert to Python dictionary.
