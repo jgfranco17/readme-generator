@@ -1,5 +1,8 @@
 import os
+from .models import MarkdownGenerator
 
 
 def create_generator():
-    pass
+    app = MarkdownGenerator(config="config.yaml")
+    print("Created Markdown generator...")
+    return app
