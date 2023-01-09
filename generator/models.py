@@ -54,6 +54,12 @@ class Header(object):
         self.__text = text
 
     @property
-    def content(self):
+    def content(self) -> str:
+        """
+        The text content of the header.
+
+        Returns:
+            str: Formatted header text
+        """
         return f'{"#" * self.__level} {self.__text}'
     
