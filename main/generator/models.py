@@ -25,8 +25,9 @@ class MarkdownGenerator(object):
         Returns:
             dict: Parsed YAML configuration dictionary
         """
+        filename = os.path.join(os.path.dirname(__file__), filename)
         if not os.path.exists(filename):
-            raise ValueError("Config file does not exist!")
+            raise ValueError(f'Config file does not exist: {filename}')
         
         if not (filename.endswith(".yml") or filename.endswith(".yaml")):
             raise ValueError("Config file must be a YAML file format!")
@@ -41,6 +42,6 @@ class MarkdownGenerator(object):
     def write(self) -> None:
         pass
     
-    def run() -> None: 
+    def run(self) -> None: 
         print("Running generator!")
     
