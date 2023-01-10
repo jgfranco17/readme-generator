@@ -14,7 +14,16 @@ class Header(object):
             str: Formatted header text
         """
         return f'{"#" * self.level} {self.text}'
-    
+
+
+class Paragraph(object):
+    def __init__(self, text:str):
+        self.text = text
+        
+    @property
+    def content(self) -> str:
+        return f'<p>{self.text}</p>'
+
     
 class Badge(object):
     def __init__(self, label:str, message:str, color:str, logo:str=None):
