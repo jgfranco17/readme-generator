@@ -1,7 +1,7 @@
 class Header(object):
     def __init__(self, level:int, text:str):
         if level not in (1, 2, 3):
-            raise ValueError(f'UInvalid header level: {level}')
+            raise ValueError(f'Invalid header level: {level}')
         self.level = level
         self.text = text
         
@@ -30,7 +30,7 @@ class Paragraph(object):
     
 class Section(object):
     def __init__(self, title:str, text:str):
-        self.title = Header(2, title)
+        self.title = f'{Header(2, title)} <a name=\"{title.lower().replace(" ", "_")}\"></a>'
         self.text = Paragraph(text)
     
     @property
