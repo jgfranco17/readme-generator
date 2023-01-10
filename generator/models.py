@@ -14,24 +14,32 @@ class MarkdownGenerator(object):
             "standard": ["About", "Prerequisites", "Usage", "Testing", "Teck Stack", "Authors"]
         }
         self.content_titles = self.content_titles_options.get(self.style)
+        self.table_of_contents = [f'[{section}](#{section.lower().replace(" ", "_")})' for section in self.content_titles]
     
     def write(self) -> str:
         output_directory = os.path.join(os.getcwd(), "output") 
         os.makedirs(output_directory, exist_ok=True)
         filepath = os.path.join(output_directory, "README.md")
-        add_newline = lambda t: t + "\n\n"
+        add_1_newline = lambda t: t + "\n"
+        add_2_newline = lambda t: t + "\n\n"
+        
+        badges = " ".join([str(badge) for badge in (Badge("status", "active", "brightgreen"), Badge("license", "MIT", "blue"))])
         headings = [
-            Header(1, self.project_title).content,
-            " ".join([str(badge) for badge in (Badge("status", "active", "brightgreen"), Badge("license", "MIT", "blue"))]),
-            "---"
+            f'<h1 align="center">{self.project_title}</h1>',
+            f'<div align="center">\n\n{badges}\n\n</div>'
         ]
         contents = [Section(title, self.template_text).content for title in self.content_titles]
         
         with open(filepath, "w") as file:
             for heading in headings:
-                file.write(add_newline(heading))
+                file.write(add_2_newline(heading))
+            file.write(add_2_newline("---"))
+            file.write("## Table of Contents\n")
+            for section in self.table_of_contents:
+                file.write(add_1_newline(f'* {section}'))
+            file.write("\n")
             for content in contents:
-                file.write(add_newline(content))
+                file.write(add_2_newline(content))
                 
         print(f'Wrote README file to {output_directory}')
     
