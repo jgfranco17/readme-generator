@@ -4,6 +4,9 @@ class Header(object):
             raise ValueError(f'UInvalid header level: {level}')
         self.level = level
         self.text = text
+        
+    def __str__(self) -> str:
+        return self.content
 
     @property
     def content(self) -> str:
@@ -23,6 +26,16 @@ class Paragraph(object):
     @property
     def content(self) -> str:
         return f'<p>{self.text}</p>'
+    
+    
+class Section(object):
+    def __init__(self, title:str, text:str):
+        self.title = Header(2, title)
+        self.text = Paragraph(text)
+    
+    @property
+    def content(self) -> str:
+        return f'{self.title}\n{self.text}'
 
     
 class Badge(object):
@@ -35,6 +48,9 @@ class Badge(object):
         self.__url = f'https://img.shields.io/badge/{self.label}-{self.message}-{self.color}?style=for-the-badge'
         if logo is not None:
             self.__url += f'&logo={logo.lower()}&logoColor=white'
+            
+    def __str__(self) -> str:
+        return self.url
             
     @property
     def url(self) -> str:
