@@ -9,6 +9,8 @@ class MarkdownGenerator(object):
         self.__config = self.__read_config_file(config)
         self.root = Tk()
         self.root.title("Github README Generator")
+        self.entry = Entry(self.root, width=40, borderwidth=5)
+        self.entry.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
         
     @property
     def filename(self) -> str:
