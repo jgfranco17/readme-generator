@@ -45,21 +45,3 @@ class MarkdownGenerator(object):
     def run(self) -> None: 
         print("Running generator!")
         
-        
-class Header(object):
-    def __init__(self, level:int, text:str):
-        if level not in (1, 2, 3):
-            raise ValueError(f'UInvalid header level: {level}')
-        self.__level = level
-        self.__text = text
-
-    @property
-    def content(self) -> str:
-        """
-        The text content of the header.
-
-        Returns:
-            str: Formatted header text
-        """
-        return f'{"#" * self.__level} {self.__text}'
-    
