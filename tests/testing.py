@@ -1,5 +1,6 @@
 import unittest
-from generator.models import MarkdownGenerator, Header
+from generator.formats import Header
+from generator.models import MarkdownGenerator
 
 
 class TestGeneratorApp(unittest.TestCase):
