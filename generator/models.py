@@ -23,6 +23,7 @@ class MarkdownGenerator(object):
         add_1_newline = lambda t: t + "\n"
         add_2_newline = lambda t: t + "\n\n"
         
+        # Set content 
         badges = " ".join([str(badge) for badge in (Badge("status", "active", "brightgreen"), Badge("license", "MIT", "blue"))])
         headings = [
             f'<h1 align="center">{self.project_title}</h1>',
@@ -30,6 +31,7 @@ class MarkdownGenerator(object):
         ]
         contents = [Section(title, self.template_text).content for title in self.content_titles]
         
+        # Write out the file 
         with open(filepath, "w") as file:
             for heading in headings:
                 file.write(add_2_newline(heading))
