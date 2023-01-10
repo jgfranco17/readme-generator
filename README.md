@@ -17,7 +17,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This app is a Python GUI-based app that allows users to create a GitHub README Markdown file by selecting inputs. It's designed to make it easy for users to create a professional-looking README file for their GitHub repositories. With just a few clicks, users can select the information they want to include in their README and the app will generate a Markdown file that is ready to be uploaded to their repository. This app is written in Python and uses the Tkinter library for the graphical user interface. It is compatible with Python 3 and should work on most operating systems.
+This app is a Python CLI-based app that allows users to create a GitHub README Markdown file by selecting inputs. It's designed to make it easy for users to create a professional-looking README file for their GitHub repositories. With just a few config commands, users can select the information they want to include in their README and the app will generate a Markdown file that is ready to be uploaded to their repository. This app is written in Python and uses the Tkinter library for the graphical user interface. It is compatible with Python 3 and should work on most operating systems.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -35,11 +35,13 @@ pip install -r requirements.txt
 
 ## 🚀 Usage <a name="usage"></a>
 
-To run the depth estimation stream, simply execute the following command:
+To run the Markdown generator, simply execute the following command:
 
 ```bash
-python3 app.py
+python3 app.py --style [minimal|standard]
 ```
+
+The `minimal` option gives a barebones template with a few relevant sections, whereas `standard` gives a few more additional sections.
 
 ## ✍️ Author <a name = "authors"></a>
 
