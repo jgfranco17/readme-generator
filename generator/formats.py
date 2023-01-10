@@ -25,7 +25,7 @@ class Paragraph(object):
         
     @property
     def content(self) -> str:
-        return f'<p>{self.text}</p>'
+        return f'<p>\n{self.text}\n</p>'
     
     
 class Section(object):
@@ -35,7 +35,7 @@ class Section(object):
     
     @property
     def content(self) -> str:
-        return f'{self.title}\n{self.text}'
+        return f'{self.title}\n{self.text.content}'
 
     
 class Badge(object):
@@ -50,7 +50,7 @@ class Badge(object):
             self.__url += f'&logo={logo.lower()}&logoColor=white'
             
     def __str__(self) -> str:
-        return self.url
+        return f'![{self.label.upper()}]({self.url})'
             
     @property
     def url(self) -> str:
